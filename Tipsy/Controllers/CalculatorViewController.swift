@@ -15,20 +15,22 @@ class CalculatorViewController: UIViewController {
     }
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
-        splitNumberLabel.text = sender.value.description
+        let value = Int(sender.value).description
+        splitNumberLabel.text = value
     }
     
     @IBAction func calculatePressed(_ sender: UIButton) {
         if billTextField.text != nil {
             let billValue : Float = Float(billTextField.text?.description ?? "0.0") ?? 0.0
+            let splitValue : Float = Float(splitNumberLabel.text?.description ?? "2") ?? 2
             if zeroPctButton.isSelected {
-                print(billValue*0)
+                print((billValue*0)/splitValue)
             }
             if tenPctButton.isSelected {
-                print(billValue*0.1)
+                print((billValue*0.1)/splitValue)
             }
             if twentyPctButton.isSelected {
-                print(billValue*0.2)
+                print((billValue*0.2)/splitValue)
             }
         }
     }
