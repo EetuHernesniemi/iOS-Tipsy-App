@@ -19,10 +19,7 @@ class CalculatorViewController: UIViewController {
     
     @IBAction func calculatePressed(_ sender: UIButton) {
         if billTextField.text != nil {
-            let billValue : Float = Float(billTextField.text ?? "0.0") ?? 0.0
-            print("billValue is \(billValue)")
-            print("billTextField.text is \(billTextField.text)")
-            
+            let billValue : Float = Float(billTextField.text?.description ?? "0.0") ?? 0.0
             if zeroPctButton.isSelected {
                 print(billValue*0)
             }
@@ -33,7 +30,6 @@ class CalculatorViewController: UIViewController {
                 print(billValue*0.2)
             }
         }
-        
     }
 }
 
