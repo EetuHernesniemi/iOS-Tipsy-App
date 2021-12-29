@@ -9,17 +9,20 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var splitNumberLabel: UILabel!
 
     @IBAction func tipChanged(_ sender: UIButton) {
+        billTextField.endEditing(true)
         zeroPctButton.isSelected = sender == zeroPctButton ? true : false
         tenPctButton.isSelected = sender == tenPctButton ? true : false
         twentyPctButton.isSelected = sender == twentyPctButton ? true : false
     }
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
+        billTextField.endEditing(true)
         let value = Int(sender.value).description
         splitNumberLabel.text = value
     }
     
     @IBAction func calculatePressed(_ sender: UIButton) {
+        billTextField.endEditing(true)
         if billTextField.text != nil {
             let billValue : Float = Float(billTextField.text?.description ?? "0.0") ?? 0.0
             let splitValue : Float = Float(splitNumberLabel.text?.description ?? "2") ?? 2
