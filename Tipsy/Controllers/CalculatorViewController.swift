@@ -17,5 +17,23 @@ class CalculatorViewController: UIViewController {
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
     }
     
+    @IBAction func calculatePressed(_ sender: UIButton) {
+        if billTextField.text != nil {
+            let billValue : Float = Float(billTextField.text ?? "0.0") ?? 0.0
+            print("billValue is \(billValue)")
+            print("billTextField.text is \(billTextField.text)")
+            
+            if zeroPctButton.isSelected {
+                print(billValue*0)
+            }
+            if tenPctButton.isSelected {
+                print(billValue*0.1)
+            }
+            if twentyPctButton.isSelected {
+                print(billValue*0.2)
+            }
+        }
+        
+    }
 }
 
